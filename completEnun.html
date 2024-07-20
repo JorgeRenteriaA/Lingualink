@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Past Participle</title>
+    <style>
+    body {
+      background-color: #f2f7fb;
+      font-family: Arial, sans-serif;
+      color: #333333;
+    }
+   .question {
+       margin-bottom: 15px;
+       font-weight: normal;
+       color: #337ab7;
+   }
+
+   .cc1 {
+        max-width: 50vw;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+   .input-blank {
+       width: 150px;
+       padding: 5px;
+       border: 1px solid #337ab7;
+       border-radius: 5px;
+       font-size: 14px;
+       color: #333333;
+   }
+
+   #submit-button {
+       margin: 0 40%;
+       background-color: #337ab7;
+       color: #ffffff;
+       padding: 10px 20px;
+       border: none;
+       border-radius: 5px;
+       font-size: 16px;
+       cursor: pointer;
+   }
+
+   #submit-button:hover {
+       background-color: #265a8d;
+   }
+
+   #result-container {
+       display: none;
+       margin-top: 20px;
+       width: 500px;
+       font-size: 24px;
+       font-weight: bold;
+       padding: 15px;
+       background-color: #337ab7;
+       color: #ffffff;
+       border-radius: 10px;
+       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+       text-align: center;
+   }
+
+   .container {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh;
+   }
+    </style>
+    <link rel="icon" href="./IMG/icon.PNG">
+</head>
+
+<body>
+    <div class="container">
+        <div class="cc1">
+            <h1>Past Participle Blank Activity</h1>
+
+            <div class="question">
+                Complete the following sentence by using the correct verb form:
+            </div>
+            <div class="question">
+                1. I have <input type="text" class="input-blank" data-answer="seen"> that movie before (<strong>see</strong>).
+            </div>
+
+            <div class="question">
+                2. She has <input type="text" class="input-blank" data-answer="written"> three novels so far
+                (<strong>write</strong>).
+            </div>
+
+            <div class="question">
+                3. They have <input type="text" class="input-blank" data-answer="eaten"> dinner already (<strong>eat</strong>).
+            </div>
+
+            <div class="question">
+                4. He has <input type="text" class="input-blank" data-answer="forgotten"> his keys at home
+                (<strong>forget</strong>).
+            </div>
+
+            <div class="question">
+                5. We have <input type="text" class="input-blank" data-answer="taken"> a lot of pictures on our trip
+                (<strong>take</strong>).
+            </div>
+
+            <div class="question">
+                6. The book has <input type="text" class="input-blank" data-answer="been"> translated into many languages
+                (<strong>be</strong>).
+            </div>
+
+            <div class="question">
+                7. The project has <input type="text" class="input-blank" data-answer="finished"> ahead of schedule
+                (<strong>finish</strong>).
+            </div>
+
+            <div class="question">
+                8. They have <input type="text" class="input-blank" data-answer="chosen"> a new leader for the team
+                (<strong>choose</strong>).
+            </div>
+
+            <div class="question">
+                9. The package has <input type="text" class="input-blank" data-answer="arrived"> yesterday
+                (<strong>arrive</strong>).
+            </div>
+
+            <div class="question">
+                10. The problem has <input type="text" class="input-blank" data-answer="been"> solved successfully
+                (<strong>be</strong>).
+            </div>
+
+            <button id="submit-button" type="submit" class="btn btn-primary" onclick="submitAnswers()">Submit Answers</button>
+            <div id="result-container"></div>
+        </div>
+    </div>
+
+    <script>
+        function submitAnswers() {
+            var answers = document.getElementsByClassName('input-blank');
+            var numBlanks = answers.length;
+            var score = 0;
+
+            for (var i = 0; i < numBlanks; i++) {
+                if (answers[i].value.toLowerCase() === answers[i].getAttribute('data-answer').toLowerCase()) {
+                    answers[i].style.backgroundColor = '#d4f0da';
+                    score++;
+                } else {
+                    answers[i].style.backgroundColor = '#f8d7da';
+                }
+                answers[i].setAttribute('disabled', 'disabled');
+            }
+
+            var resultContainer = document.getElementById('result-container');
+            resultContainer.style.display = 'block';
+            resultContainer.textContent = 'Your score is ' + score + ' out of ' + numBlanks;
+            resultContainer.style.backgroundColor = '#2bade2';
+            var a = resultContainer.innerHTML;
+            resultContainer.innerHTML = a+"<a href='https://forms.gle/XwerxZjwQdyXNxyL9'>Encuesta</a>"
+            // Deshabilitar el botón "Submit Answers"
+            document.getElementById('submit-button').disabled = true;
+        }
+    </script>
+</body>
+
+</html>
